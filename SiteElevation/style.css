@@ -111,12 +111,17 @@ div {
 
 #talent {
   display:grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 1fr ;
   grid-template-rows: 1fr;
   /* background-color: rgb(16, 162, 38); */
   justify-content: center;
   align-items: center;
   align-content: center;
+}
+#talent>img {
+  width: min-content;
+  display: inline-block;
+  box-align: center;
 }
 
 #any-talent {
@@ -145,9 +150,10 @@ li {
   justify-content: center;
   align-items: center;
   align-content: center;
-  padding: 100px;
-  grid-gap: 50px;
+  /* padding: 100px;
+  grid-gap: 50px; */
 }
+
 .learn-image>img {
   height: 450px;
 }
