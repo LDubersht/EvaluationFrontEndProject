@@ -1,0 +1,29 @@
+.tweet-class{
+    border: thin solid #CCCCCC;
+    margin-left: 10px;
+    padding: 8px;
+}
+
+.tweet-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.comment-add{
+    border: thin solid #FFCCCC;
+}
+.comment-text {
+    width: 240px;
+}
+
+.comment-button {
+    background-color: #DDDDDD;
+}
+
+.drop-tweet-class{
+    background-color: #eb8787;
+}
+
+.dropcomment {
+    color: red;
+}

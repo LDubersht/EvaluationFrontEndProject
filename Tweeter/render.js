@@ -1,43 +1,52 @@
 const _renderLibrary = function(){
     const _displayTweet = function(_objTweet){
 
-        for (var key in _objTweet){
+        for (var tkey in _objTweet){
             const idiv = document.createElement("div");
-            idiv.id = key;
-            // $(idiv).Data("id") = key;
-            idiv.style.marginLeft = "10px";   
-            idiv.style.border = "thin solid #CCCCCC"; 
-            idiv.style.padding = "8px";
+            idiv.id = tkey;
+            idiv.classList.add("tweet-class");
+
 
             const tweetName = document.createElement("p");
-            tweetName.id = "p" + key;
-            tweetName.innerText = _objTweet[key]["text"]; 
-            tweetName.style.fontSize = "20px";
+            tweetName.id = "p_" + tkey;
+            tweetName.innerText = _objTweet[tkey]["text"]; 
+            tweetName.classList.add("tweet-text");
             idiv.appendChild(tweetName);
-
+            //comment block 
+            for (var ckey in _objTweet[tkey]["comments"]){
+                const cdiv = document.createElement("div");
+                cdiv.id = "c_" + tkey+"_"+ckey;
+                cdiv.classList.add("comment-item");
+                cdiv.innerHTML = '<span class="dropcomment">[x] </span>' + _objTweet[tkey]["comments"][ckey]
+                $.data(cdiv, 'cmid', tkey);
+                idiv.appendChild(cdiv);
+  
+            }
+            //comment block
             const ddiv = document.createElement("div");
-            ddiv.style.border = "thin solid #FFCCCC"; 
+            ddiv.classList.add("comment-add");
             idiv.appendChild(ddiv);
 
             const commentBox = document.createElement("input");
             commentBox.type = "text";
-            commentBox.id = "textComment"+key;
-            commentBox.style.width = "320px";
+            commentBox.id = "textCommentBox_"+tkey;
+            commentBox.classList.add("comment-text");
             ddiv.appendChild(commentBox);
             
             const commentButton = document.createElement("button");
             commentButton.innerText = "Comment";
-            commentButton.id = "btnComment"+key;
-            commentButton.style.background = "#DDDDDD";
+            $.data(commentButton, 'twid', tkey);
+            commentButton.id = "btnComment_"+tkey;
+            commentButton.classList.add("comment-button");
             ddiv.appendChild(commentButton);
 
             const tweetDrop = document.createElement("button");
             tweetDrop.innerText = "Delete Post";
-            tweetDrop.id = "btnTweet"+key; 
+            $.data(tweetDrop, 'twid', tkey);
+            tweetDrop.id = "btnTweetDrop_"+tkey; 
+            tweetDrop.classList.add("drop-tweet-class");
             idiv.appendChild(tweetDrop);
             document.getElementById("tweet-div").appendChild(idiv);
-            //add drop
-            tweetDrop.addEventListener("click", tweetOperation.dropTweet(key));
 
         }
     }

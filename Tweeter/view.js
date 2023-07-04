@@ -7,7 +7,6 @@ const _viewLibrary = function(){
 
         const div = document.createElement("div");
         div.id = "createTW";
-        // div.style.display = "flex";
         div.style.marginLeft = "10px"; 
 
         const inputBox = document.createElement("input");
@@ -37,10 +36,17 @@ const _viewLibrary = function(){
         return res;
     } 
 
+    const _getCommentText = function(tweetkey) {
+        let node = document.getElementById("textCommentBox_"+tweetkey);
+        let res = node.value;
+        node.value = "";
+        return res;
+    }
+
         return {
             startInit: _startInit,
-            getTweetText: _getTweetText
-
+            getTweetText: _getTweetText,
+            getCommentText: _getCommentText
         }
 }
 
