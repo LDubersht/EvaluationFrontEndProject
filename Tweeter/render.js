@@ -17,10 +17,8 @@ const _renderLibrary = function(){
                 const cdiv = document.createElement("div");
                 cdiv.id = "c_" + tkey+"_"+ckey;
                 cdiv.classList.add("comment-item");
-                cdiv.innerHTML = '<span class="dropcomment">[x] </span>' + _objTweet[tkey]["comments"][ckey]
-                $.data(cdiv, 'cmid', tkey);
+                cdiv.innerHTML = '<span class="dropcomment" data-twid="'+tkey+'" data-cmid="'+ckey+'">[x]</span>' + _objTweet[tkey]["comments"][ckey]
                 idiv.appendChild(cdiv);
-  
             }
             //comment block
             const ddiv = document.createElement("div");

@@ -27,12 +27,10 @@ const _tweetCollection = function(){
     
     const dropTweet = function(keyTweet){
         delete _objTweets[keyTweet];
-        // return {..._objTweets};    
     }
     
     const dropComment = function(keyTweet,kewComment){
-        delete _objTweets[tweetKey]["comments"][cmKey];
-        // return {..._objTweets};    
+        delete _objTweets[keyTweet]["comments"][kewComment];
     }
 
     const getTW = function(){
@@ -42,8 +40,10 @@ const _tweetCollection = function(){
     return {
         addTweet,
         dropTweet,
-        getTW,
-        addComment
+        addComment,
+        dropComment,
+        getTW
+        
     }
 }
 

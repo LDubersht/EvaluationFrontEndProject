@@ -38,9 +38,13 @@ const _tweetOperation = function(){
     }
 
     const _dropComment = function(){
-        // $(this).Parent("comment-item").data("twid")
-        console.log($(this).Parent("comment-item").data("cmid"))
-        
+        // console.log($(this).data("twid"));
+        // console.log($(this).data("cmid"));
+        tweetCollection.dropComment($(this).data("twid"),$(this).data("cmid"))
+        let twObj = tweetCollection.getTW();
+        render.clearTweets();
+        render.displayTweet(twObj);
+        _addlisteners()
     }
 
     const _addlisteners = function(){
